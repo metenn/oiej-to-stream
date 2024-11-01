@@ -1,9 +1,14 @@
 ## Oiej to Stream
 
-#### Todo list:
+### Lookuper:
+
+Allows to pass arbitrary RTSP stream through web socket.
+Details can be found in: /src/lookuper/README.md
+
+### Todo list:
 
 - [ ] Generic script that installs screen and camera caputre daemon on computers (remember about Xauthority)
-- [ ] Forwarder RTSP to websocket
+- [x] Forwarder RTSP to websocket
 - [ ] Forwarder RTSP to OBS
 - [ ] Selector for RTSP lookup nad forward
 - [ ] Json format for multiple sources
