@@ -1,21 +1,35 @@
 {
+	"ip_addr_internal": "192.168.1.26",
+	"ip_addr_external": "192.168.1.26",
+
+	"mediamtx_port":      8554,
 	"internal_api_port":  9151,
 	"external_api_port":  9152,
 	"forward_port":       9153,
 	"results_port":       9154,
-	"clients_api_port":   9155,
+	"client_api_port":    9155,
 	"lookup_ports_start": 9200,
 
-	"enable_cams":                1,
-	"enable_cams_quick_view":     0,
-
-	"enable_desktop":             1,
+	"enable_cam_quick_view":      0,
 	"enable_desktop_quick_view":  0,
 
-	"forward_job": "ffmpeg -rtsp_transport tcp -i %s -rtsp_transport tcp -c:v copy -f rtsp %s",
-	"lookup_job": "path to lookuper",
+	"forward_job": "ffmpeg -rtsp_transport tcp -i rtsp://%s -rtsp_transport tcp -c:v copy -f rtsp rtsp://%s",
+	"lookup_job": "node lookup.js %s %s %s %s %s",
+
+	"client_ffmpeg_destkop_options": "-framerate 15 -i :0.0 -b 5000K -f rtsp rtsp://%s%s-desktop",
+	"client_ffmpeg_destkop_qv_options": "-framerate 15 -i :0.0 -b 500K -f rtsp rtsp://%s%s-desktop-quick-view",
+	"client_ffmpeg_cam_options": "-s 1280x720 -framerate 15 -b 2000K -f rtsp rtsp://%s%s-cam",
+	"client_ffmpeg_cam_qv_options": "-s 1280x720 -framerate 15 -b 200K -f rtsp rtsp://%s%s-cam-quick-view",
 
 	"clients": [
-		["ip", "port", "path", "name", "detailed_name", "x_position", "y_position"]
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.101:8554",
+			"upstream_path": "/lab007-01",
+			"name": "Ramzel",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 1,
+			"y_position" : 1
+		}
 	]
 }

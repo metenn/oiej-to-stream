@@ -1,0 +1,14 @@
+[Unit]
+Wants=network.target
+Description=Oiej to Stream [desktop quick view]
+
+[Service]
+Environment="DISPLAY=:0"
+User=root
+WorkingDirectory=/root/oiej-to-stream/
+ExecStart=/root/oiej-to-stream/desktop-quick-view.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

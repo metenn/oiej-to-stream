@@ -1,0 +1,13 @@
+[Unit]
+Wants=network.target
+Description=Oiej to Stream [cam]
+
+[Service]
+User=root
+WorkingDirectory=/root/oiej-to-stream/
+ExecStart=/root/oiej-to-stream/cam.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
