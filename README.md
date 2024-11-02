@@ -1,13 +1,13 @@
 ## Oiej to Stream
 
-## Components:
+### Components:
 
-### Lookuper
+#### Lookuper
 
 Allows to pass arbitrary RTSP stream through web socket.
 Details can be found in: `src/lookuper/README.md`
 
-### Client_api
+#### Client_api
 
 Client api informs clients about:
 * almost all `ffmpeg` options and parameters,
@@ -15,12 +15,12 @@ Client api informs clients about:
 * if quick views should be used.
 Details can be found in: `src/client_api/README.md`
 
-### Client_daemons
+#### Client_daemons
 
 Client daemons contains templates of scripts and daemon services that should be deployed on clients computers.
 Details can be found in: `src/client_daemons/README.md`
 
-## Todo list:
+### Todo list:
 
 - [x] Generic script that installs screen and camera caputre daemon on computers (remember about Xauthority)
 - [x] Forwarder RTSP to websocket
@@ -33,6 +33,6 @@ Details can be found in: `src/client_daemons/README.md`
 - [ ] Manager for news label pool
 
 
-#### Note
+### Note
 
 Author is aware that this repo contains packages installed with `npm install` and did it intentionally (although he shouldn't).
