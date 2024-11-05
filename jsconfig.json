@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json.schemastore.org/jsconfig",
+    "compilerOptions": {
+        "target": "ES2022",
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
+        "lib": ["ES2022"],
+        "allowJs": true,
+        "checkJs": true,
+        "maxNodeModuleJsDepth": 0, // Won't check js files in node_modules
+        // Typescript documentation straight up lies here by claiming 0 is the default.
+        "noEmit": true,
+        "strict": true,
+        "exactOptionalPropertyTypes": true,
+        "resolveJsonModule": true, // Special
+        // "resolveJsonModule": true,
+        // "noUncheckedIndexedAccess": true, // Broken
+        "skipLibCheck": false // Poorly documented, doesn't check own project files if true (default)
+    },
+    // Files we wish to typecheck
+    "include": ["src/**/*.js", "types.d.ts", "overrides.d.ts"]
+}
+// Check with tsc -p jsconfig.json
