@@ -25,8 +25,9 @@ Details can be found in: `src/client_daemons/README.md`
 - [x] Generic script that installs screen and camera caputre daemon on computers (remember about Xauthority)
 - [x] Forwarder RTSP to websocket
 - [x] Forwarder RTSP to OBS
-- [ ] Selector for RTSP lookup nad forward
-- [ ] Json format for multiple sources
+- [x] Selector for RTSP lookup
+- [ ] Selector for RTSP lookup and forward
+- [x] Json format for multiple sources
 - [x] API for computers that informs about master RTSP servers 
 - [ ] Selected team text generator
 - [ ] News label overlay generator

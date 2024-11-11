@@ -2,19 +2,26 @@
 	"ip_addr_internal": "192.168.1.26",
 	"ip_addr_external": "192.168.1.26",
 
-	"mediamtx_port":      8554,
-	"internal_api_port":  9151,
-	"external_api_port":  9152,
-	"forward_port":       9153,
-	"results_port":       9154,
-	"client_api_port":    9155,
-	"lookup_ports_start": 9200,
+	"mediamtx_port":       8554,
+	"internal_api_port":   9151,
+	"external_api_port":   9152,
+	"forward_port":        9153,
+	"lookup_port":         9154,
+	"results_port":        9155,
+	"client_api_port":     9156,
+	"forward_ports_start": 9200,
+	"lookup_ports_start":  9210,
 
 	"enable_cam_quick_view":      0,
 	"enable_desktop_quick_view":  0,
 
+	"default_lookup_dimensions": {
+		"camera":  { "w": 1280, "h": 720  },
+		"desktop": { "w": 1920, "h": 1080 }
+	},
+
 	"forward_job": "ffmpeg -rtsp_transport tcp -i rtsp://%s -rtsp_transport tcp -c:v copy -f rtsp rtsp://%s",
-	"lookup_job": "node lookup.js %s %s %s %s %s",
+	"lookup_job": "/bin/node ../lookuper/lookup.js rtsp://%s %s %s %s 3000K",
 
 	"client_ffmpeg_destkop_options": "-framerate 15 -i :0.0 -b 5000K -f rtsp rtsp://%s%s-desktop",
 	"client_ffmpeg_destkop_qv_options": "-framerate 15 -i :0.0 -b 500K -f rtsp rtsp://%s%s-desktop-quick-view",
@@ -24,11 +31,110 @@
 	"clients": [
 		{
 			"client_ip": "192.168.1.26",
-			"upstream_server": "192.168.1.101:8554",
+			"upstream_server": "192.168.1.26:8554",
 			"upstream_path": "/lab007-01",
 			"name": "Ramzel",
 			"detailed_name": "Marcel Szelwiga",
 			"x_position" : 1,
+			"y_position" : 1
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UWr 1",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 2,
+			"y_position" : 2
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UWr 2",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 3,
+			"y_position" : 3
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UW 3",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 4,
+			"y_position" : 4
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UJ 2",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 5,
+			"y_position" : 5
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "Teapots",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 6,
+			"y_position" : 6
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "PWr",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 7,
+			"y_position" : 7
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UWr 9",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 8,
+			"y_position" : 8
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UW 0",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 9,
+			"y_position" : 9
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UWr 4",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 10,
+			"y_position" : 10
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UWr 7",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 1,
+			"y_position" : 10
+		},
+		{
+			"client_ip": "192.168.1.26",
+			"upstream_server": "192.168.1.26:8554",
+			"upstream_path": "/lab007-01",
+			"name": "UWr 8",
+			"detailed_name": "Marcel Szelwiga",
+			"x_position" : 10,
 			"y_position" : 1
 		}
 	]

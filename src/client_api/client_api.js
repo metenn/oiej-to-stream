@@ -12,10 +12,13 @@ function format(s, args){
 }
 
 function ipv6_to_ip(ipv6){
-	if (ipv6.indexOf(":") != -1)
-		return ipv6.split(":").splice(-1);
-	else
+	if (ipv6.indexOf(":") != -1) {
+		var res = ipv6.split(":").splice(-1);
+		if (typeof(res) == 'string')	return res;
+		else							return res[0];
+	} else {
 		return ipv6;
+	}
 }
 
 function search_client(ip){
@@ -35,7 +38,7 @@ app.get('/desktop', (req, res) => {
 	client = search_client(ipv6_to_ip(req.ip));
 	console.log(format("Request desktop from %s [%s]", [ipv6_to_ip(req.ip), client ? client.name : "no such client"]));
 	if (!client)
-		return res.send(format("No client %s in config.json\n", ipv6_to_ip(req.ip)));
+		return res.send(format("No client %s in config.json\n", [ipv6_to_ip(req.ip)]));
 	return res.send(format(config.client_ffmpeg_destkop_options, [client.upstream_server, client.upstream_path]));
 });
 
@@ -43,7 +46,7 @@ app.get('/cam', (req, res) => {
 	client = search_client(ipv6_to_ip(req.ip));
 	console.log(format("Request cam from %s [%s]", [ipv6_to_ip(req.ip), client ? client.name : "no such client"]));
 	if (!client)
-		return res.send(format("No client %s in config.json\n", ipv6_to_ip(req.ip)));
+		return res.send(format("No client %s in config.json\n", [ipv6_to_ip(req.ip)]));
 	return res.send(format(config.client_ffmpeg_cam_options, [client.upstream_server, client.upstream_path]));
 });
 
@@ -69,7 +72,7 @@ app.get('/desktop-quick-view', (req, res) => {
 	client = search_client(ipv6_to_ip(req.ip));
 	console.log(format("Request desktop-quick-view from %s [%s]", [ipv6_to_ip(req.ip), client ? client.name : "no such client"]));
 	if (!client)
-		return res.send(format("No client %s in config.json\n", ipv6_to_ip(req.ip)));
+		return res.send(format("No client %s in config.json\n", [ipv6_to_ip(req.ip)]));
 	return res.send(format(config.client_ffmpeg_destkop_qv_options, [client.upstream_server, client.upstream_path]));
 });
 
@@ -77,7 +80,7 @@ app.get('/cam-quick-view', (req, res) => {
 	client = search_client(ipv6_to_ip(req.ip));
 	console.log(format("Request cam-quick-view from %s [%s]", [ipv6_to_ip(req.ip), client ? client.name : "no such client"]));
 	if (!client)
-		return res.send(format("No client %s in config.json\n", ipv6_to_ip(req.ip)));
+		return res.send(format("No client %s in config.json\n", [ipv6_to_ip(req.ip)]));
 	return res.send(format(config.client_ffmpeg_cam_qv_options, [client.upstream_server, client.upstream_path]));
 });
 

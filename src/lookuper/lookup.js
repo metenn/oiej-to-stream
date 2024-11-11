@@ -21,6 +21,7 @@ async function main(){
 		ffmpegOptions: {
 			'-video_size': format('%sx%s', [process.argv[4], process.argv[5]]),
 			'-s': format('%sx%s', [process.argv[4], process.argv[5]]),
+			'-aspect': format('%s:%s', [process.argv[4], process.argv[5]]),
 			'-b': process.argv[6]
 		}
 	});
