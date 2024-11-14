@@ -44,6 +44,11 @@ app.get('/', (req, res) => {
 	res.send(content);
 });
 
+app.get('/fhd', (req, res) => {
+	var content = fs.readFileSync("views/fhd.html", 'utf8')
+	res.send(content);
+});
+
 server.listen(config.lookup_port);
 console.log("Starting api for lookup clients on: " + config.lookup_port);
 jobs = {};
